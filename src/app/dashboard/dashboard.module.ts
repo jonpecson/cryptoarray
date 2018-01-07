@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { HttpModule } from "@angular/http";
 
 import { DashboardRoutingModule } from "./dashboard-routing.module";
 import { ChartistModule } from 'ng-chartist';
@@ -13,6 +14,7 @@ import { Dashboard2Component } from "./dashboard2/dashboard2.component";
 @NgModule({
     imports: [
         CommonModule,
+        HttpModule,
         DashboardRoutingModule,
         ChartistModule,
         NgbModule,
