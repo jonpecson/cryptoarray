@@ -26,6 +26,8 @@ export interface Chart {
 
 export class Dashboard1Component {
 
+  bitcoinPrice = 0;
+
     // Line chart configuration Starts
     lineChart: Chart = {
         type: 'Line', data: data['LineDashboard'],
@@ -37,7 +39,7 @@ export class Dashboard1Component {
                 showGrid: false,
                 showLabel: false,
                 low: 0,
-                high: 100,
+                high: 30000,
                 offset: 0,
             },
             fullWidth: true,
@@ -125,23 +127,58 @@ export class Dashboard1Component {
     constructor(private modalService: NgbModal,
                 private http: Http) {
         this.today = moment().format('YYYY-MM-DD');
-        this.previousDayOfMonth = moment(this.today).subtract(3, 'days').format('YYYY-MM-DD');
+        this.previousDayOfMonth = moment(this.today).subtract(7, 'days').format('YYYY-MM-DD');
 
-        // this.http.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${this.previousDayOfMonth}&end=${this.today}&currency=PHP`)
-                // .subscribe((res: any) => {
-                //     res = res.json();
-                //     const prices = Object.entries(res.bpi);
-                //     let result = {labels: [], series: []};
-                //     prices.forEach(price => {
-                //         result.labels.push(moment(price[0]).format('MMM D, YYYY'));
-                //         result.series.push(price[1]);
-                //     });
-                //     result.series = [result.series];
-                //     console.log(result)
-                //     console.log(JSON.stringify(result))
-                //     this.lineChart.data = result;
-                // })
+        this.http.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${this.previousDayOfMonth}&end=${this.today}&currency=USD`)
+
+        // this.http.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=2017-1-12&end=2018-5-01&currency=PHP`)
+
+
+                .subscribe((res: any) => {
+                    res = res.json();
+                    // const prices = Object.entries(res.bpi);
+                    // prices.forEach(price => {
+                    //     result.labels.push(moment(price[0]).format('MMM D, YYYY'));
+                    //     result.series.push(price[1]);
+                    // });
+                    // result.series = [result.series];
+                    // console.log(result)
+                    // console.log(JSON.stringify(result))
+                    // this.lineChart.data = result;
+
+                    let labels = Object.keys(res.bpi)
+                    console.log(labels);
+
+                    labels = labels.map(x=> {
+                        return moment(x).format('MM/DD');
+                    })
+
+                    let series = this.flatten(res.bpi);
+                    console.log(series);
+
+                    console.log(series[series.length-1]);
+
+                    this.bitcoinPrice = series[series.length-1];
+
+
+
+                    let result = {"labels": labels, "series": [series]};
+
+                    console.log(JSON.stringify(result));
+
+                    this.lineChart.data = result;
+
+
+                })
     }
+
+    flatten(obj) {
+    return Object.keys(obj).reduce(function(previous, current) {
+        previous.push(obj[current]);
+        return previous;
+    }, []);
+    }
+
 
     open(template) {
         this.modalService.open(template);
