@@ -18,13 +18,23 @@
             <div class="media mb-1">
               <div class="media-body text-right">
                 <h4 class="font-medium-1 my-1 text-center">
-									Balance
+									Packages
 								</h4>
                 <select class="form-control">
-                  <option *ngFor="let balance of balances" [value]="balance.label">
-										 {{ balance.label }} - {{ balance.value | currency: 'USD': true }}
+                  <option *ngFor="let package of packages" [value]="package.label">
+										 {{ package.label }} - {{ package.value | currency: 'USD': true }}
                   </option>
-                </select>
+                </select> 
+                <!-- <select class="form-control" id="Packages">
+                  <option value="Starter">Starter - $500</option>
+                  <option value="StarterPlus1">Starter Plus - $1000</option>
+                  <option value="StarterPlus2">Starter Plus - $2500</option>
+                  <option value="Titanium">Titanium - $5000</option>
+                  <option value="Gold">Gold - $10000</option>
+                  <option value="Platinum">Platinum - $25000</option>
+                  <option value="Diamond">Diamond - $50000</option>
+                  <option value="Black_Diamond">Black Diamond - $100000</option>
+                </select> -->
               </div>
             </div>
           </div>
@@ -50,7 +60,7 @@
         <div class="card-block">
           <div class="row mb-3">
             <div class="col">
-              <span class="mb-1 text-muted d-block">5 BTC - Bitcoin</span>
+              <span class="mb-1 text-muted d-block">$5 - Bitcoin</span>
               <div class="progress" style="height: 5px;">
                 <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -58,14 +68,14 @@
           </div>
           <div class="row mb-2">
             <div class="col">
-              <span class="mb-1 text-muted d-block">10 ETH - Ethereum</span>
+              <span class="mb-1 text-muted d-block">$10 - Ethereum</span>
               <div class="progress" style="height: 5px;">
                 <div class="progress-bar bg-deep-purple bg-lighten-1" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0"
                   aria-valuemax="100"></div>
               </div>
             </div>
             <div class="col">
-              <span class="mb-1 text-muted d-block">15 BCH - Bitcoin Cash</span>
+              <span class="mb-1 text-muted d-block">$15 - Bitcoin Cash</span>
               <div class="progress" style="height: 5px;">
                 <div class="progress-bar bg-blue" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -155,12 +165,12 @@
 				<div class="row">
 					<div class="col-6">
 						<fieldset class="form-group">
-							<label for="CURRENCY">Currency:</label>
-							<select class="form-control" id="CURRENCY">
-								<option value="BTC">Bitcoin</option>
-								<option value="ETH">Ethereum</option>
-								<option value="BCH">Bitcoin Cash</option>
-							</select>
+						  <label for="CURRENCY">Currency: USD</label>
+                <!-- <select class="form-control" id="CURRENCY">
+                  <option value="BTC">Bitcoin</option>
+                  <option value="ETH">Ethereum</option>
+                  <option value="BCH">Bitcoin Cash</option>
+                </select> -->
 						</fieldset>
 					</div>
 				</div>
@@ -177,8 +187,8 @@
 				<div class="row">
 					<div class="col-6">
 						<fieldset class="form-group">
-							<label for="bitcoin-price">BTC</label>
-							<input type="text" class="form-control" id="bitcoin-price">
+							<label for="currency-amount">Amount</label>
+							<input type="text" class="form-control" id="currency-amount">
 						</fieldset>
 					</div>
 				</div>
