@@ -99,22 +99,58 @@ export class Dashboard1Component {
     };
     // Donut chart configuration Ends
 
-    balances: Array<{ label: string, value: number }> = [
+    // balances: Array<{ label: string, value: number }> = [
+    //     {
+    //         label: 'Bitcoin',
+    //         value: 0
+    //     },
+    //     {
+    //         label: 'Ethereum',
+    //         value: 0
+    //     },
+    //     {
+    //         label: 'Bitcoin Cash',
+    //         value: 0
+    //     },
+    //     {
+    //         label: 'Total Balance',
+    //         value: 0
+    //     }
+
+    // ];
+
+    packages: Array<{ label: string, value: number }> = [
         {
-            label: 'Bitcoin',
-            value: 0
+            label: 'Starter',
+            value: 500
         },
         {
-            label: 'Ethereum',
-            value: 0
+            label: 'Starter Plus',
+            value: 1000
         },
         {
-            label: 'Bitcoin Cash',
-            value: 0
+            label: 'Starter Plus',
+            value: 2500
         },
         {
-            label: 'Total Balance',
-            value: 0
+            label: 'Titanium',
+            value: 5000
+        },
+        {
+            label: 'Gold',
+            value: 10000
+        },
+        {
+            label: 'Platinum',
+            value: 25000
+        },
+        {
+            label: 'Diamond',
+            value: 50000
+        },
+        {
+            label: 'Black Diamond',
+            value: 100000
         }
 
     ];
