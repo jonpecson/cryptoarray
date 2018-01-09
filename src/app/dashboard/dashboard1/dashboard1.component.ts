@@ -129,7 +129,7 @@ export class Dashboard1Component {
             value: 1000
         },
         {
-            label: 'Starter Plus',
+            label: 'Intermediate',
             value: 2500
         },
         {
