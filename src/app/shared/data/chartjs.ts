@@ -95,8 +95,8 @@ export var lineChartType = 'line';
 //area chart
 export var areaChartData: Array<any> = [
 
-  { data: [0, 150, 140, 105, 190, 230, 270], label: 'Series A' },
-  { data: [0, 90, 120, 240, 140, 250, 190], label: 'Series B' }
+  { data: [0, 150, 140, 105, 190, 230, 270], label: 'Buy' },
+  { data: [0, 90, 120, 240, 140, 250, 190], label: 'Sell' }
 
 ];
 export var areaChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];

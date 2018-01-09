@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import * as Chartist from 'chartist';
 import { ChartType, ChartEvent } from "ng-chartist/dist/chartist.component";
-
+import * as chartsData from '../../shared/data/chartjs';
+import * as bitcoinData from '../../shared/data/bitcoin';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Http } from '@angular/http';
 
@@ -121,6 +122,8 @@ export class Dashboard1Component {
 
     // ];
 
+   
+
     packages: Array<{ label: string, value: number }> = [
         {
             label: 'Starter',
@@ -131,7 +134,7 @@ export class Dashboard1Component {
             value: 1000
         },
         {
-            label: 'Starter Plus',
+            label: 'Intermediate',
             value: 2500
         },
         {
@@ -207,6 +210,21 @@ export class Dashboard1Component {
 
                 })
     }
+ // lineChart
+ public lineChartData = chartsData.lineChartData;
+ public lineChartLabels = chartsData.lineChartLabels;
+ public lineChartOptions = chartsData.lineChartOptions;
+ public lineChartColors = chartsData.lineChartColors;
+ public lineChartLegend = chartsData.lineChartLegend;
+ public lineChartType = chartsData.lineChartType;
+
+ // areaChart
+ public areaChartData = chartsData.areaChartData;
+ public areaChartLabels = chartsData.areaChartLabels;
+ public areaChartOptions = chartsData.areaChartOptions;
+ public areaChartColors = chartsData.areaChartColors;
+ public areaChartLegend = chartsData.areaChartLegend;
+ public areaChartType = chartsData.areaChartType;
 
     flatten(obj) {
     return Object.keys(obj).reduce(function(previous, current) {

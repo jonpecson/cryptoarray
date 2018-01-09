@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentPagesRoutingModule } from "./content-pages-routing.module";
 
 import { ComingSoonPageComponent } from "./coming-soon/coming-soon-page.component";
@@ -17,7 +16,8 @@ import { RegisterPageComponent } from "./register/register-page.component";
     imports: [
         CommonModule,
         ContentPagesRoutingModule,
-        FormsModule        
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [
         ComingSoonPageComponent,

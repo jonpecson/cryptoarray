@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -8,11 +8,26 @@ import { Router, ActivatedRoute } from "@angular/router";
     styleUrls: ['./forgot-password-page.component.scss']
 })
 
-export class ForgotPasswordPageComponent {
-    @ViewChild('f') forogtPasswordForm: NgForm;
+export class ForgotPasswordPageComponent implements OnInit {
+    forogtPasswordForm: FormGroup;
 
-    constructor(private router: Router,
-        private route: ActivatedRoute) { }
+    constructor(
+        public fb: FormBuilder,
+         private router: Router,
+        private route: ActivatedRoute
+    ) { }
+
+    ngOnInit() {
+    this.forogtPasswordForm = this.fb.group({
+      email: ['', Validators.required]
+    });
+  }
+
+  save(forogtPasswordForm) {
+    const payload = {
+      email: forogtPasswordForm.value.email,
+    }
+  }
 
     // On submit click, reset form fields
     onSubmit() {
