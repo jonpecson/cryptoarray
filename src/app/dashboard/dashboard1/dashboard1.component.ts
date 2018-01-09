@@ -27,7 +27,24 @@ export interface Chart {
 
 export class Dashboard1Component {
 
-  bitcoinPrice = 0;
+    bitcoinPrice = 0;
+    profits: Array<any>;
+    hardwareInfo: any;
+    // lineChart
+    public lineChartData = chartsData.lineChartData;
+    public lineChartLabels = chartsData.lineChartLabels;
+    public lineChartOptions = chartsData.lineChartOptions;
+    public lineChartColors = chartsData.lineChartColors;
+    public lineChartLegend = chartsData.lineChartLegend;
+    public lineChartType = chartsData.lineChartType;
+
+    // areaChart
+    public areaChartData = chartsData.areaChartData;
+    public areaChartLabels = chartsData.areaChartLabels;
+    public areaChartOptions = chartsData.areaChartOptions;
+    public areaChartColors = chartsData.areaChartColors;
+    public areaChartLegend = chartsData.areaChartLegend;
+    public areaChartType = chartsData.areaChartType;
 
     // Line chart configuration Starts
     lineChart: Chart = {
@@ -164,73 +181,37 @@ export class Dashboard1Component {
     previousDayOfMonth: any;
 
     constructor(private modalService: NgbModal,
-                private http: Http) {
-        this.today = moment().format('YYYY-MM-DD');
-        this.previousDayOfMonth = moment(this.today).subtract(7, 'days').format('YYYY-MM-DD');
+        private http: Http) {
 
-        this.http.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${this.previousDayOfMonth}&end=${this.today}&currency=USD`)
-
-        // this.http.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=2017-1-12&end=2018-5-01&currency=PHP`)
-
-
-                .subscribe((res: any) => {
-                    res = res.json();
-                    // const prices = Object.entries(res.bpi);
-                    // prices.forEach(price => {
-                    //     result.labels.push(moment(price[0]).format('MMM D, YYYY'));
-                    //     result.series.push(price[1]);
-                    // });
-                    // result.series = [result.series];
-                    // console.log(result)
-                    // console.log(JSON.stringify(result))
-                    // this.lineChart.data = result;
-
-                    let labels = Object.keys(res.bpi)
-                    console.log(labels);
-
-                    labels = labels.map(x=> {
-                        return moment(x).format('MM/DD');
-                    })
-
-                    let series = this.flatten(res.bpi);
-                    console.log(series);
-
-                    console.log(series[series.length-1]);
-
-                    this.bitcoinPrice = series[series.length-1];
-
-
-
-                    let result = {"labels": labels, "series": [series]};
-
-                    console.log(JSON.stringify(result));
-
-                    this.lineChart.data = result;
-
-
+        this.http.get('https://crypto-array-api.herokuapp.com/bitcoin/price')
+            .subscribe((res: any) => {
+                res = res.json();
+                let labels = Object.keys(res.bpi)
+                console.log(labels);
+                labels = labels.map(x => {
+                    return moment(x).format('MM/DD');
                 })
-    }
- // lineChart
- public lineChartData = chartsData.lineChartData;
- public lineChartLabels = chartsData.lineChartLabels;
- public lineChartOptions = chartsData.lineChartOptions;
- public lineChartColors = chartsData.lineChartColors;
- public lineChartLegend = chartsData.lineChartLegend;
- public lineChartType = chartsData.lineChartType;
+                let series = this.flatten(res.bpi);
+                this.bitcoinPrice = series[series.length - 1];
+                let result = { "labels": labels, "series": [series] };
+                this.lineChart.data = result;
 
- // areaChart
- public areaChartData = chartsData.areaChartData;
- public areaChartLabels = chartsData.areaChartLabels;
- public areaChartOptions = chartsData.areaChartOptions;
- public areaChartColors = chartsData.areaChartColors;
- public areaChartLegend = chartsData.areaChartLegend;
- public areaChartType = chartsData.areaChartType;
+            })
+
+            this.http.get('https://crypto-array-api.herokuapp.com/bitcoin/profit')
+            .subscribe((res: any) => {
+                console.log(res.json());
+                this.hardwareInfo  = res.json();
+                this.profits = this.hardwareInfo.profits;
+            })
+    }
+
 
     flatten(obj) {
-    return Object.keys(obj).reduce(function(previous, current) {
-        previous.push(obj[current]);
-        return previous;
-    }, []);
+        return Object.keys(obj).reduce(function (previous, current) {
+            previous.push(obj[current]);
+            return previous;
+        }, []);
     }
 
 
