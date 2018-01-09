@@ -122,7 +122,7 @@ export class Dashboard1Component {
 
     // ];
 
-   
+
 
     packages: Array<{ label: string, value: number }> = [
         {
