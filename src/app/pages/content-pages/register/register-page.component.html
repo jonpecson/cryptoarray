@@ -16,68 +16,68 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 d-flex align-items-center">
                                 <div class="card-block mx-auto">
-                                    <form (ngSubmit)="onSubmit()" #f="ngForm">
+                                    <form [formGroup]="form" (ngSubmit)="save(form)">
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="icon-user"></i>
                                             </span>
-                                            <input type="text" class="form-control" name="fname" id="fname" placeholder="Name" ngModel required>
+                                            <input type="text" class="form-control" formControlName="name" id="name" placeholder="Name" required>
                                         </div>
                                         <div class="input-group mb-6">
                                             <div class="input-group mb-3">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
-                                                <input class="form-control" type="date" name="birthdate" id="birthdate" placeholder="Date of Birth" ngModel required>
+                                                <input class="form-control" type="date" formControlName="birthdate" id="birthdate" placeholder="Date of Birth" required>
                                             </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-addon">
                                                     <i class="icon-user"></i>
                                                 </span>
-                                                <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" ngModel required>
+                                                <input type="text" class="form-control" formControlName="gender" id="gender" placeholder="Gender" required>
                                             </div>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-phone"></i>
                                             </span>
-                                            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" ngModel required>
+                                            <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone Number" required>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-map-signs"></i>
                                             </span>
-                                            <input type="text" class="form-control" name="streetAddress" id="streetAddress" placeholder="Street Address" ngModel required>
+                                            <input type="text" class="form-control" formControlName="streetAddress" id="streetAddress" placeholder="Street Address" required>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-map-marker"></i>
                                             </span>
-                                            <input type="text" class="form-control" name="city" id="city" placeholder="City" ngModel required>
+                                            <input type="text" class="form-control" formControlName="city" id="city" placeholder="City" required>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-map-pin"></i>
                                             </span>
-                                            <input type="text" class="form-control" name="state" id="state" placeholder="State" ngModel required>
+                                            <input type="text" class="form-control" formControlName="state" id="state" placeholder="State" required>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-location-arrow"></i>
                                             </span>
-                                            <input type="text" class="form-control" name="zipCode" id="zipCode" placeholder="Zip Code" ngModel required>
+                                            <input type="text" class="form-control" formControlName="zipcode" id="zipcode" placeholder="Zip Code" required>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="ft-mail"></i>
                                             </span>
-                                            <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email" ngModel required email>
+                                            <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email" required email>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="ft-lock"></i>
                                             </span>
-                                            <input type="password" class="form-control" name="inputPass" id="inputPass" placeholder="Password" ngModel required>
+                                            <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password" required>
                                         </div>
                                         <div class="form-group col-sm-offset-1">
                                             <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
@@ -87,7 +87,7 @@
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
-                                            <button type="button" class="btn btn-warning btn-raised" [disabled]="!f.valid">Get Started</button>
+                                            <button type="submit" class="btn btn-warning btn-raised" [disabled]="!form.valid">Get Started</button>
                                         </div>
                                     </form>
                                 </div>
