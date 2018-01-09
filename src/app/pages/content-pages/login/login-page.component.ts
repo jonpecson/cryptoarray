@@ -26,7 +26,7 @@ export class LoginPageComponent implements OnInit {
   save(form) {
     const payload = {
       email: form.value.email,
-      password: form.value.password,
+      password: form.value.password
     }
   }
 }

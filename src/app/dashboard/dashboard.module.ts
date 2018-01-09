@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { HttpModule } from "@angular/http";
-
+import { ChartsModule } from 'ng2-charts';
 import { DashboardRoutingModule } from "./dashboard-routing.module";
 import { ChartistModule } from 'ng-chartist';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,7 @@ import { Dashboard2Component } from "./dashboard2/dashboard2.component";
         HttpModule,
         DashboardRoutingModule,
         ChartistModule,
+        ChartsModule,
         NgbModule,
         MatchHeightModule
     ],

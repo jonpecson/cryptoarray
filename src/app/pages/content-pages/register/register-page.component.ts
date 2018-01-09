@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
     selector: 'app-register-page',
@@ -7,7 +8,7 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
     styleUrls: ['./register-page.component.scss']
 })
 
-export class RegisterPageComponent implements OnInit{
+export class RegisterPageComponent implements OnInit {
     form: FormGroup;
 
     constructor(
