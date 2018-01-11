@@ -95,11 +95,11 @@ export var lineChartType = 'line';
 //area chart
 export var areaChartData: Array<any> = [
 
-  { data: [0, 150, 140, 105, 190, 230, 270], label: 'Buy' },
-  { data: [0, 90, 120, 240, 140, 250, 190], label: 'Sell' }
+  { data: [13700.00, 13699.99, 13699.94, 13699.99, 13701.56, 13700.10, 13700.90, 13699.43], label: 'Buy' },
+  { data: [13698.40, 13700.70, 13699.00, 13699.99, 13701.50, 13699.68, 13699.00, 13699.53], label: 'Sell' }
 
 ];
-export var areaChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+export var areaChartLabels: Array<any> = ['5', '6', '7', '8', '9', '10', '11', '12'];
 export var areaChartOptions: any = {
   animation: {
     duration: 1000, // general animation time
@@ -120,7 +120,7 @@ export var areaChartOptions: any = {
       },
       scaleLabel: {
         display: true,
-        labelString: 'Month'
+        labelString: 'January'
       }
     }],
     yAxes: [{
@@ -131,7 +131,7 @@ export var areaChartOptions: any = {
       },
       scaleLabel: {
         display: true,
-        labelString: 'Value'
+        labelString: 'BitCoin Value in USD'
       }
     }]
   },
