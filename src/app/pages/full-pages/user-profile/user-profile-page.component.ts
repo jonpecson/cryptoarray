@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class UserProfilePageComponent implements OnInit {
 
-    //Variable Declaration
-    currentPage: string = "About"
+    // Variable Declaration
+    currentPage = 'About';
+    fname = 'John';
 
     ngOnInit() {
         // Horizontal Timeline js for user timeline

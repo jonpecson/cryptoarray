@@ -30,6 +30,7 @@ export class Dashboard1Component {
     bitcoinPrice = 0;
     profits: Array<any>;
     hardwareInfo: any;
+    coinwarz: Array<any>;
     // lineChart
     public lineChartData = chartsData.lineChartData;
     public lineChartLabels = chartsData.lineChartLabels;
@@ -191,9 +192,9 @@ export class Dashboard1Component {
                 labels = labels.map(x => {
                     return moment(x).format('MM/DD');
                 })
-                let series = this.flatten(res.bpi);
+                const series = this.flatten(res.bpi);
                 this.bitcoinPrice = series[series.length - 1];
-                let result = { "labels": labels, "series": [series] };
+                const result = { "labels": labels, "series": [series] };
                 this.lineChart.data = result;
 
             })
@@ -204,6 +205,17 @@ export class Dashboard1Component {
                 this.hardwareInfo  = res.json();
                 this.profits = this.hardwareInfo.profits;
             })
+
+            this.http.get('http://www.coinwarz.com/v1/api/profitability?apikey=d8662c8fde494723a8004b1afdbb5222&algo=all')
+            .subscribe((res: any) => {
+                console.log(res);
+                const response  = res.json();
+                this.coinwarz = response.Data;
+                console.log(this.coinwarz);
+            })
+
+
+            
     }
 
 

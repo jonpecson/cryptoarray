@@ -46,7 +46,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
     //  On submit click, reset field value
-    // onSubmit() {
-    //     this.registerForm.reset();
-    // }
+    onSubmit() {
+        this.form.reset();
+    }
 }

@@ -29,4 +29,12 @@ export class LoginPageComponent implements OnInit {
       password: form.value.password
     }
   }
+
+  onForgotPassword() {
+
+  }
+
+  onRegister() {
+
+  }
 }

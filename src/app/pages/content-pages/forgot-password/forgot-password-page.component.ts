@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 
 export class ForgotPasswordPageComponent implements OnInit {
-    forogtPasswordForm: FormGroup;
+    forgotPasswordForm: FormGroup;
 
     constructor(
         public fb: FormBuilder,
@@ -18,20 +18,20 @@ export class ForgotPasswordPageComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-    this.forogtPasswordForm = this.fb.group({
+    this.forgotPasswordForm = this.fb.group({
       email: ['', Validators.required]
     });
   }
 
-  save(forogtPasswordForm) {
+  save(forgotPasswordForm) {
     const payload = {
-      email: forogtPasswordForm.value.email,
+      email: forgotPasswordForm.value.email,
     }
   }
 
     // On submit click, reset form fields
     onSubmit() {
-        this.forogtPasswordForm.reset();
+        this.forgotPasswordForm.reset();
     }
 
     // On login link click
