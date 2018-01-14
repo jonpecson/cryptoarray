@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, ConnectionBackend, XHRBackend, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -16,7 +16,13 @@ import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 import { CustomOption } from "./shared/toastr/custom-option";
 
 import * as $ from 'jquery';
+import { ApiHandlerService } from './shared/providers/api-handler.service';
+import { AuthService } from './shared/providers/auth.service';
+import { UserService } from './shared/providers/user.service';
 
+export function handlerFunc(backend: XHRBackend, defaultOptions: RequestOptions) {
+  return new ApiHandlerService(backend, defaultOptions);
+}
 
 @NgModule({
     declarations: [
@@ -38,8 +44,15 @@ import * as $ from 'jquery';
         })
     ],
     providers: [
+        UserService,
+        AuthService,
         // Toastr providers
-        { provide: ToastOptions, useClass: CustomOption }
+        { provide: ToastOptions, useClass: CustomOption },
+        {
+            provide: ApiHandlerService,
+            useFactory: handlerFunc,
+            deps: [XHRBackend, RequestOptions]
+        }
     ],
     bootstrap: [AppComponent]
 })

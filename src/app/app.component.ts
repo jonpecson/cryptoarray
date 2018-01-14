@@ -6,10 +6,12 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
     templateUrl: './app.component.html'
 })
 export class AppComponent {
+    rootView: string;
 
     //Set toastr container ref configuration for toastr positioning on screen
     constructor(public toastr: ToastsManager, vRef: ViewContainerRef) {
         this.toastr.setRootViewContainerRef(vRef);
+        this.rootView = 'LoginComponent';
     }
 
 

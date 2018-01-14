@@ -7,9 +7,9 @@ import { NouisliderModule } from 'ng2-nouislider/src/nouislider';
 import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonpModule } from '@angular/http';
-import { QuillModule } from 'ngx-quill'
 import { DragulaModule } from 'ng2-dragula';
 import { MatchHeightModule } from "../shared/directives/match-height.directive";
+// import { QuillModule } from 'ngx-quill'
 
 import { ButtonsComponent } from "./bootstrap/buttons/buttons.component";
 import { ListsComponent } from "./bootstrap/lists/lists.component";
@@ -36,9 +36,9 @@ import { TooltipComponent } from './bootstrap/tooltip/tooltip.component';
 import { TypeaheadComponent } from './bootstrap/typeahead/typeahead.component';
 import { NgButtonsComponent } from './bootstrap/ng-buttons/ng-buttons.component';
 import { UploadComponent } from './extra/upload/upload.component';
-import { EditorComponent } from './extra/editor/editor.component';
 import { DragDropComponent } from './extra/drag-drop/drag-drop.component';
 import { TourComponent } from './extra/tour/tour.component';
+// import { EditorComponent } from './extra/editor/editor.component';
 
 @NgModule({
     imports: [
@@ -50,9 +50,9 @@ import { TourComponent } from './extra/tour/tour.component';
         ReactiveFormsModule,
         JsonpModule,
         NgbModule,
-        QuillModule,
         DragulaModule,
-        MatchHeightModule
+        MatchHeightModule,
+        // QuillModule,
     ],
     declarations: [
         ButtonsComponent,
@@ -81,9 +81,9 @@ import { TourComponent } from './extra/tour/tour.component';
         NgbdModalContent,
         NgButtonsComponent,
         UploadComponent,
-        EditorComponent,
         DragDropComponent,
-        TourComponent
+        TourComponent,
+        // EditorComponent,
     ],
     providers: [  ],
     entryComponents:[NgbdModalContent]

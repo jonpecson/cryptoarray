@@ -23,10 +23,9 @@ export class ForgotPasswordPageComponent implements OnInit {
     });
   }
 
-  save(forgotPasswordForm) {
-    const payload = {
-      email: forgotPasswordForm.value.email,
-    }
+  save(form) {
+    const payload = form.value;
+    console.log(payload);
   }
 
     // On submit click, reset form fields

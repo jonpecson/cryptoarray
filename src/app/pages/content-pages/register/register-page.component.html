@@ -1,78 +1,102 @@
 <!--Registration Page Starts-->
 <section id="regestration">
     <div class="container">
-        <div class="row full-height-vh">
+        <div class="row">
             <div class="col-12 d-flex align-items-center justify-content-center">
                 <div class="card">
                     <div class="card-body">
                         <div class="row d-flex">
-                            <div class="col-12 col-sm-12 col-md-6 gradient-deep-orange-orange">
+                            <div class="col-12 col-sm-12 col-md-6 gradient-indigo-purple">
                                 <div class="card-block">
-                                    <div class="card-img overlap">
-                                        <img alt="Card image cap" src="assets/img/elements/13.png" width="350" class="mx-auto d-block">
+                                    <div class="card-img pt-3">
+                                        <img alt="Card image cap" src="assets/img/logos/logo-big-white.png" width="64" class="mx-auto d-block">
                                     </div>
                                     <h2 class="card-title font-large-1 text-center white mt-3">Registration</h2>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 d-flex align-items-center">
                                 <div class="card-block mx-auto">
-                                    <form (ngSubmit)="onSubmit()" #f="ngForm">
+                                    <form (ngSubmit)="save(form)" [formGroup]="form">
+                                        <label for="name">Full name</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="icon-user"></i>
                                             </span>
                                             <input type="text" class="form-control" required formControlName="name" id="name" placeholder="Full Name">
                                         </div>
-                                        <div class="input-group mb-6">
+
+                                        <label for="birthdate">Birth date</label>
+                                        <div class="input-group mb-3">
                                             <div class="input-group mb-3">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
                                             <input type="date" class="form-control" required formControlName="birthdate" id="birthdate" placeholder="Date of Birth">
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-addon">
-                                                    <i class="icon-user"></i>
-                                                </span>
-                                            <input type="text" class="form-control" required formControlName="gender" id="gender" placeholder="Gender">
-                                            </div>
                                         </div>
+
+                                        <label for="gender">Gender</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-addon">
+                                                <i class="icon-user"></i>
+                                            </span>
+                                            <select class="form-control" required formControlName="gender" id="gender" placeholder="Gender">
+                                                <option disabled value="Gender">Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <label for="phone_number">Phone Number</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-phone"></i>
                                             </span>
-                                            <input type="text" class="form-control" required formControlName="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+                                            <input type="text" class="form-control" required formControlName="phone_number" id="phone_number" placeholder="Phone Number">
                                         </div>
+
+                                        <label for="street_address">Street Address</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-map-signs"></i>
                                             </span>
-                                            <input type="text" class="form-control" required formControlName="streetAddress" id="streetAddress" placeholder="Street Address">
+                                            <input type="text" class="form-control" required formControlName="street_address" id="street_address" placeholder="Street Address">
                                         </div>
+
+                                        <label for="city">City</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-map-marker"></i>
                                             </span>
                                             <input type="text" class="form-control" required formControlName="city" id="city" placeholder="City">
                                         </div>
+
+                                        <label for="state">State/Province</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-map-pin"></i>
                                             </span>
                                             <input type="text" class="form-control" required formControlName="state" id="state" placeholder="State">
                                         </div>
+
+                                        <label for="zipcode">Zipcode</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-location-arrow"></i>
                                             </span>
                                             <input type="text" class="form-control" required formControlName="zipcode" id="zipcode" placeholder="Zipcode">
                                         </div>
+
+                                        <label for="street_address">Street Address</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="ft-mail"></i>
                                             </span>
                                             <input type="email" class="form-control" required formControlName="email" id="email" placeholder="Email Address">
                                         </div>
+
+                                        <label for="password">Password</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon">
                                                 <i class="ft-lock"></i>
@@ -87,7 +111,7 @@
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
-                                            <button type="button" class="btn btn-warning btn-raised" [disabled]="!f.valid">Get Started</button>
+                                            <button type="submit" class="btn btn-warning btn-raised" [disabled]="!form.valid">Get Started</button>
                                         </div>
                                     </form>
                                 </div>

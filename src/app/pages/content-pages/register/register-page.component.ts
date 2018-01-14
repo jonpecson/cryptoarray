@@ -1,6 +1,10 @@
+import { RequestMethod } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiHandlerService } from 'app/shared/providers/api-handler.service';
 
+import * as swal from 'sweetalert2';
 
 @Component({
     selector: 'app-register-page',
@@ -12,16 +16,18 @@ export class RegisterPageComponent implements OnInit {
     form: FormGroup;
 
     constructor(
-        public fb: FormBuilder
+        public fb: FormBuilder,
+        public router: Router,
+        public api: ApiHandlerService
     ) {}
 
     ngOnInit() {
     this.form = this.fb.group({
       name: ['', Validators.required],
       birthdate: ['', Validators.required],
-      gender: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      streetAddress: ['', Validators.required],
+      gender: ['Gender', Validators.required],
+      phone_number: ['', Validators.required],
+      street_address: ['', Validators.required],
       state: ['', Validators.required],
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
@@ -31,22 +37,23 @@ export class RegisterPageComponent implements OnInit {
   }
 
   save(form) {
-    const payload = {
-      name: form.value.name,
-      birthdate: form.value.birthdate,
-      gender: form.value.gender,
-      phoneNumber: form.value.phoneNumber,
-      streetAddress: form.value.streetAddress,
-      state: form.value.state,
-      city: form.value.city,
-      zipcode: form.value.zipcode,
-      email: form.value.email,
-      password: form.value.password,
-    }
-  }
+    const payload = form.value;
+    console.log(payload);
 
-    //  On submit click, reset field value
-    onSubmit() {
-        this.form.reset();
-    }
+    this.api.callService(
+      'register/customer',
+      RequestMethod.Post,
+      payload
+    )
+    .map(res => <string>res.json())
+    .subscribe((data) => {
+      console.log(data);
+      swal(
+        'You are now registered!',
+        '',
+        'success'
+      );
+      this.router.navigate(['dashboard']);
+    });
+  }
 }

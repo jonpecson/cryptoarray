@@ -10,7 +10,7 @@ import { CONTENT_ROUTES } from './shared/routes/content-layout.routes';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'pages/login',
     pathMatch: 'full',
   },
   { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES },

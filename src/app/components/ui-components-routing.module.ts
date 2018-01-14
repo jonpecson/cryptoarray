@@ -26,9 +26,9 @@ import { TooltipComponent } from './bootstrap/tooltip/tooltip.component';
 import { TypeaheadComponent } from './bootstrap/typeahead/typeahead.component';
 import { NgButtonsComponent } from "./bootstrap/ng-buttons/ng-buttons.component";
 import { UploadComponent } from './extra/upload/upload.component';
-import { EditorComponent } from './extra/editor/editor.component';
 import { DragDropComponent } from './extra/drag-drop/drag-drop.component';
 import { TourComponent } from './extra/tour/tour.component';
+// import { EditorComponent } from './extra/editor/editor.component';
 
 const routes: Routes = [
   {
@@ -40,8 +40,8 @@ const routes: Routes = [
         data: {
           title: 'Buttons'
         }
-      },      
-      
+      },
+
       {
         path: 'lists',
         component: ListsComponent,
@@ -69,7 +69,7 @@ const routes: Routes = [
         data: {
           title: 'Toastr'
         }
-      },     
+      },
       {
         path: 'nouislider',
         component: NouiSliderComponent,
@@ -77,13 +77,13 @@ const routes: Routes = [
           title: 'NoUI Slider'
         }
       },
-      {
-        path: 'editor',
-        component: EditorComponent,
-        data: {
-          title: 'Quill Editor'
-        }
-      },
+      // {
+      //   path: 'editor',
+      //   component: EditorComponent,
+      //   data: {
+      //     title: 'Quill Editor'
+      //   }
+      // },
       {
         path: 'upload',
         component: UploadComponent,
@@ -125,7 +125,7 @@ const routes: Routes = [
         data: {
           title: 'Input Groups'
         }
-      },    
+      },
       {
         path: 'media',
         component: MediaObjectsComponent,
@@ -230,7 +230,7 @@ const routes: Routes = [
         data: {
           title: 'Ngb-Bootstrap'
         }
-      },    
+      },
 
     ]
   }
